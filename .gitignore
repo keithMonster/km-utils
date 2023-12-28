@@ -118,6 +118,7 @@ dist
 
 /target
 Cargo.lock
+pnpm-lock.yaml
 
 *.node
 .pnp.*

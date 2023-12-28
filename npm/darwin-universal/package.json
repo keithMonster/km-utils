@@ -1,15 +1,12 @@
 {
-  "name": "@km/cli-darwin-x64",
+  "name": "@km/cli-darwin-universal",
   "version": "0.0.0",
   "os": [
     "darwin"
   ],
-  "cpu": [
-    "x64"
-  ],
-  "main": "cli.darwin-x64.node",
+  "main": "cli.darwin-universal.node",
   "files": [
-    "cli.darwin-x64.node"
+    "cli.darwin-universal.node"
   ],
   "license": "MIT",
   "engines": {

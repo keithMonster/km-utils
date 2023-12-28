@@ -1,32 +1,18 @@
 {
   "name": "@km/cli-win32-x64-msvc",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "os": [
     "win32"
   ],
   "cpu": [
     "x64"
   ],
-  "main": "km-cli.win32-x64-msvc.node",
+  "main": "cli.win32-x64-msvc.node",
   "files": [
-    "km-cli.win32-x64-msvc.node"
-  ],
-  "description": "Template project for writing node package with napi-rs",
-  "keywords": [
-    "napi-rs",
-    "NAPI",
-    "N-API",
-    "Rust",
-    "node-addon",
-    "node-addon-api"
+    "cli.win32-x64-msvc.node"
   ],
   "license": "MIT",
   "engines": {
     "node": ">= 10"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "access": "public"
-  },
-  "repository": "git@github.com:napi-rs/package-template.git"
+  }
 }
