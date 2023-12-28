@@ -37,7 +37,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = require('./cli.android-arm64.node')
           } else {
-            nativeBinding = require('@km/cli-android-arm64')
+            nativeBinding = require('@keithmonster/cli-android-arm64')
           }
         } catch (e) {
           loadError = e
@@ -49,7 +49,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = require('./cli.android-arm-eabi.node')
           } else {
-            nativeBinding = require('@km/cli-android-arm-eabi')
+            nativeBinding = require('@keithmonster/cli-android-arm-eabi')
           }
         } catch (e) {
           loadError = e
@@ -69,7 +69,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = require('./cli.win32-x64-msvc.node')
           } else {
-            nativeBinding = require('@km/cli-win32-x64-msvc')
+            nativeBinding = require('@keithmonster/cli-win32-x64-msvc')
           }
         } catch (e) {
           loadError = e
@@ -83,7 +83,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = require('./cli.win32-ia32-msvc.node')
           } else {
-            nativeBinding = require('@km/cli-win32-ia32-msvc')
+            nativeBinding = require('@keithmonster/cli-win32-ia32-msvc')
           }
         } catch (e) {
           loadError = e
@@ -97,7 +97,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = require('./cli.win32-arm64-msvc.node')
           } else {
-            nativeBinding = require('@km/cli-win32-arm64-msvc')
+            nativeBinding = require('@keithmonster/cli-win32-arm64-msvc')
           }
         } catch (e) {
           loadError = e
@@ -113,7 +113,7 @@ switch (platform) {
       if (localFileExisted) {
         nativeBinding = require('./cli.darwin-universal.node')
       } else {
-        nativeBinding = require('@km/cli-darwin-universal')
+        nativeBinding = require('@keithmonster/cli-darwin-universal')
       }
       break
     } catch {}
@@ -124,7 +124,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = require('./cli.darwin-x64.node')
           } else {
-            nativeBinding = require('@km/cli-darwin-x64')
+            nativeBinding = require('@keithmonster/cli-darwin-x64')
           }
         } catch (e) {
           loadError = e
@@ -138,7 +138,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = require('./cli.darwin-arm64.node')
           } else {
-            nativeBinding = require('@km/cli-darwin-arm64')
+            nativeBinding = require('@keithmonster/cli-darwin-arm64')
           }
         } catch (e) {
           loadError = e
@@ -157,7 +157,7 @@ switch (platform) {
       if (localFileExisted) {
         nativeBinding = require('./cli.freebsd-x64.node')
       } else {
-        nativeBinding = require('@km/cli-freebsd-x64')
+        nativeBinding = require('@keithmonster/cli-freebsd-x64')
       }
     } catch (e) {
       loadError = e
@@ -174,7 +174,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = require('./cli.linux-x64-musl.node')
             } else {
-              nativeBinding = require('@km/cli-linux-x64-musl')
+              nativeBinding = require('@keithmonster/cli-linux-x64-musl')
             }
           } catch (e) {
             loadError = e
@@ -187,7 +187,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = require('./cli.linux-x64-gnu.node')
             } else {
-              nativeBinding = require('@km/cli-linux-x64-gnu')
+              nativeBinding = require('@keithmonster/cli-linux-x64-gnu')
             }
           } catch (e) {
             loadError = e
@@ -203,7 +203,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = require('./cli.linux-arm64-musl.node')
             } else {
-              nativeBinding = require('@km/cli-linux-arm64-musl')
+              nativeBinding = require('@keithmonster/cli-linux-arm64-musl')
             }
           } catch (e) {
             loadError = e
@@ -216,7 +216,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = require('./cli.linux-arm64-gnu.node')
             } else {
-              nativeBinding = require('@km/cli-linux-arm64-gnu')
+              nativeBinding = require('@keithmonster/cli-linux-arm64-gnu')
             }
           } catch (e) {
             loadError = e
@@ -231,7 +231,7 @@ switch (platform) {
           if (localFileExisted) {
             nativeBinding = require('./cli.linux-arm-gnueabihf.node')
           } else {
-            nativeBinding = require('@km/cli-linux-arm-gnueabihf')
+            nativeBinding = require('@keithmonster/cli-linux-arm-gnueabihf')
           }
         } catch (e) {
           loadError = e
@@ -246,7 +246,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = require('./cli.linux-riscv64-musl.node')
             } else {
-              nativeBinding = require('@km/cli-linux-riscv64-musl')
+              nativeBinding = require('@keithmonster/cli-linux-riscv64-musl')
             }
           } catch (e) {
             loadError = e
@@ -259,7 +259,7 @@ switch (platform) {
             if (localFileExisted) {
               nativeBinding = require('./cli.linux-riscv64-gnu.node')
             } else {
-              nativeBinding = require('@km/cli-linux-riscv64-gnu')
+              nativeBinding = require('@keithmonster/cli-linux-riscv64-gnu')
             }
           } catch (e) {
             loadError = e
