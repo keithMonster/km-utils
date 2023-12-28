@@ -18,6 +18,14 @@
     }
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keithMonster/km-cli"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
   "devDependencies": {
     "@napi-rs/cli": "^2.17.0",
     "ava": "^5.1.1"
