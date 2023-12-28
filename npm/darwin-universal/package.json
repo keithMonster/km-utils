@@ -1,5 +1,5 @@
 {
-  "name": "@km/cli-darwin-universal",
+  "name": "@keithmonster/cli-darwin-universal",
   "version": "0.0.1",
   "os": [
     "darwin"

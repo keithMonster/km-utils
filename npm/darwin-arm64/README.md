@@ -1,3 +1,3 @@
-# `@km/cli-darwin-arm64`
+# `@keithmonster/cli-darwin-arm64`
 
-This is the **aarch64-apple-darwin** binary for `@km/cli`
+This is the **aarch64-apple-darwin** binary for `@keithmonster/cli`

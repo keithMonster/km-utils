@@ -1,3 +1,3 @@
-# `@km/cli-darwin-x64`
+# `@keithmonster/cli-darwin-x64`
 
-This is the **x86_64-apple-darwin** binary for `@km/cli`
+This is the **x86_64-apple-darwin** binary for `@keithmonster/cli`

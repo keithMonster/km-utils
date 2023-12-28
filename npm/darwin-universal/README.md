@@ -1,3 +1,3 @@
-# `@km/cli-darwin-universal`
+# `@keithmonster/cli-darwin-universal`
 
-This is the **universal-apple-darwin** binary for `@km/cli`
+This is the **universal-apple-darwin** binary for `@keithmonster/cli`

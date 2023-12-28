@@ -1,5 +1,5 @@
 {
-  "name": "@km/cli-win32-x64-msvc",
+  "name": "@keithmonster/cli-win32-x64-msvc",
   "version": "0.0.1",
   "os": [
     "win32"

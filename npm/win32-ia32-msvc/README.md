@@ -1,3 +1,3 @@
-# `@km/cli-win32-ia32-msvc`
+# `@keithmonster/cli-win32-ia32-msvc`
 
-This is the **i686-pc-windows-msvc** binary for `@km/cli`
+This is the **i686-pc-windows-msvc** binary for `@keithmonster/cli`
