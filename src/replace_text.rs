@@ -20,3 +20,27 @@ pub(crate) fn replace_text(original: String, pattern: String, replacement: Strin
 
   replaced_str
 }
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+
+  #[test]
+  fn it_works() {
+    let original_str = r#"import { chatPageInitSdk } from '@shared/chat-page'
+  import { chatPageInitSdk } from '@shared/chat-page2'"#;
+
+    let pattern = r#"from '@shared/([^']+)'"#;
+    let replacement = "from './_shared/$1'";
+
+    assert_eq!(
+      replace_text(
+        original_str.to_string(),
+        pattern.to_string(),
+        replacement.to_string()
+      ),
+      r#"import { chatPageInitSdk } from './_shared/chat-page'
+  import { chatPageInitSdk } from './_shared/chat-page2'"#
+    );
+  }
+}
