@@ -1,15 +1,15 @@
 {
-  "name": "@keithmonster/cli-darwin-arm64",
+  "name": "@keithmonster/cli-linux-x64-musl",
   "version": "0.0.0",
   "os": [
-    "darwin"
+    "linux"
   ],
   "cpu": [
-    "arm64"
+    "x64"
   ],
-  "main": "cli.darwin-arm64.node",
+  "main": "cli.linux-x64-musl.node",
   "files": [
-    "cli.darwin-arm64.node"
+    "cli.linux-x64-musl.node"
   ],
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "license": "MIT",
   "engines": {
     "node": ">= 10"
-  }
+  },
+  "libc": [
+    "musl"
+  ]
 }

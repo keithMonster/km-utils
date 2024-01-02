@@ -1,15 +1,15 @@
 {
-  "name": "@keithmonster/cli-darwin-arm64",
+  "name": "@keithmonster/cli-linux-arm-gnueabihf",
   "version": "0.0.0",
   "os": [
-    "darwin"
+    "linux"
   ],
   "cpu": [
-    "arm64"
+    "arm"
   ],
-  "main": "cli.darwin-arm64.node",
+  "main": "cli.linux-arm-gnueabihf.node",
   "files": [
-    "cli.darwin-arm64.node"
+    "cli.linux-arm-gnueabihf.node"
   ],
   "repository": {
     "type": "git",

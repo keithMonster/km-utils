@@ -1,15 +1,15 @@
 {
-  "name": "@keithmonster/cli-darwin-arm64",
+  "name": "@keithmonster/cli-freebsd-x64",
   "version": "0.0.0",
   "os": [
-    "darwin"
+    "freebsd"
   ],
   "cpu": [
-    "arm64"
+    "x64"
   ],
-  "main": "cli.darwin-arm64.node",
+  "main": "cli.freebsd-x64.node",
   "files": [
-    "cli.darwin-arm64.node"
+    "cli.freebsd-x64.node"
   ],
   "repository": {
     "type": "git",
