@@ -1,5 +1,5 @@
 {
-  "name": "@keithmonster/cli-linux-x64-musl",
+  "name": "@keithmonster/utils-linux-x64-musl",
   "version": "0.0.7",
   "os": [
     "linux"

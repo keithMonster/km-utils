@@ -1,3 +1,3 @@
-# `@keithmonster/cli-linux-arm64-musl`
+# `@keithmonster/utils-linux-arm64-musl`
 
-This is the **aarch64-unknown-linux-musl** binary for `@keithmonster/cli`
+This is the **aarch64-unknown-linux-musl** binary for `@keithmonster/utils`

@@ -1,3 +1,3 @@
-# `@keithmonster/cli-win32-x64-msvc`
+# `@keithmonster/utils-win32-x64-msvc`
 
-This is the **x86_64-pc-windows-msvc** binary for `@keithmonster/cli`
+This is the **x86_64-pc-windows-msvc** binary for `@keithmonster/utils`

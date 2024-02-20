@@ -1,5 +1,5 @@
 {
-  "name": "@keithmonster/cli-linux-riscv64-gnu",
+  "name": "@keithmonster/utils-linux-riscv64-gnu",
   "version": "0.0.7",
   "os": [
     "linux"

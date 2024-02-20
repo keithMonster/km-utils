@@ -1,3 +1,3 @@
-# `@keithmonster/cli-darwin-x64`
+# `@keithmonster/utils-darwin-x64`
 
-This is the **x86_64-apple-darwin** binary for `@keithmonster/cli`
+This is the **x86_64-apple-darwin** binary for `@keithmonster/utils`

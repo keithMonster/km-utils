@@ -1,5 +1,5 @@
 {
-  "name": "@keithmonster/cli-darwin-arm64",
+  "name": "@keithmonster/utils-darwin-arm64",
   "version": "0.0.7",
   "os": [
     "darwin"
