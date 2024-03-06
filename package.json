@@ -23,7 +23,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/keithMonster/km-utils"
+    "url": "git+https://github.com/keithMonster/km-utils.git"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
