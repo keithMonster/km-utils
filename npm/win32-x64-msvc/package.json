@@ -7,16 +7,20 @@
   "cpu": [
     "x64"
   ],
-  "main": "cli.win32-x64-msvc.node",
+  "main": "utils.win32-x64-msvc.node",
   "files": [
-    "cli.win32-x64-msvc.node"
+    "utils.win32-x64-msvc.node"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/keithMonster/km-utils"
-  },
   "license": "MIT",
   "engines": {
     "node": ">= 10"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keithMonster/km-utils"
   }
 }

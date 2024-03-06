@@ -4,16 +4,20 @@
   "os": [
     "darwin"
   ],
-  "main": "cli.darwin-universal.node",
+  "main": "utils.darwin-universal.node",
   "files": [
-    "cli.darwin-universal.node"
+    "utils.darwin-universal.node"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/keithMonster/km-utils"
-  },
   "license": "MIT",
   "engines": {
     "node": ">= 10"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keithMonster/km-utils"
   }
 }

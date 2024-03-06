@@ -7,16 +7,20 @@
   "cpu": [
     "x64"
   ],
-  "main": "cli.darwin-x64.node",
+  "main": "utils.darwin-x64.node",
   "files": [
-    "cli.darwin-x64.node"
+    "utils.darwin-x64.node"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/keithMonster/km-utils"
-  },
   "license": "MIT",
   "engines": {
     "node": ">= 10"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keithMonster/km-utils"
   }
 }

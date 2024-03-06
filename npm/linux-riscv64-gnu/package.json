@@ -7,17 +7,21 @@
   "cpu": [
     "riscv64"
   ],
-  "main": "cli.linux-riscv64-gnu.node",
+  "main": "utils.linux-riscv64-gnu.node",
   "files": [
-    "cli.linux-riscv64-gnu.node"
+    "utils.linux-riscv64-gnu.node"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/keithMonster/km-utils"
-  },
   "license": "MIT",
   "engines": {
     "node": ">= 10"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keithMonster/km-utils"
   },
   "libc": [
     "glibc"
