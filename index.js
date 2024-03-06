@@ -281,6 +281,7 @@ if (!nativeBinding) {
   throw new Error(`Failed to load native binding`)
 }
 
-const { replaceText } = nativeBinding
+const { rmDir, replaceText } = nativeBinding
 
+module.exports.rmDir = rmDir
 module.exports.replaceText = replaceText
