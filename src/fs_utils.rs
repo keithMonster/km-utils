@@ -27,10 +27,9 @@ pub fn mk_dir(path: String) -> Option<bool> {
 }
 
 #[cfg(test)]
-use std::env;
-
 mod tests {
   use super::*;
+  use std::env;
 
   #[test]
   fn test_dir() {
