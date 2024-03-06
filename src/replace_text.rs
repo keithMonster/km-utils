@@ -2,7 +2,7 @@
 
 use regex::Regex;
 
-fn replace_shared_imports(original: &str, pattern: &str, replacement: &str) -> String {
+fn replace_text_rs(original: &str, pattern: &str, replacement: &str) -> String {
   // 创建正则表达式
   let re = Regex::new(pattern).unwrap();
 
@@ -14,9 +14,8 @@ fn replace_shared_imports(original: &str, pattern: &str, replacement: &str) -> S
 }
 
 #[napi]
-pub(crate) fn replace_text(original: String, pattern: String, replacement: String) -> String {
-  let replaced_str =
-    replace_shared_imports(original.as_str(), pattern.as_str(), replacement.as_str());
+pub fn replace_text(original: String, pattern: String, replacement: String) -> String {
+  let replaced_str = replace_text_rs(original.as_str(), pattern.as_str(), replacement.as_str());
 
   replaced_str
 }
