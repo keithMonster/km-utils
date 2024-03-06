@@ -18,13 +18,42 @@ pub fn rm_dir(path: String) -> Option<bool> {
   }
 }
 
+#[napi]
+pub fn mk_dir(path: String) -> Option<bool> {
+  match fs::create_dir(path) {
+    Ok(_) => Some(true),
+    Err(_) => None,
+  }
+}
+
 #[cfg(test)]
+use std::env;
+
 mod tests {
   use super::*;
 
   #[test]
-  fn test_rm_dir() {
-    let file_path = "/Users/xuke/githubProject/km-utils/src/test";
+  fn test_dir() {
+    let mut file_path = String::new();
+
+    if let Ok(current_dir) = env::current_dir() {
+      file_path = format!("{}/src/test", current_dir.display().to_string());
+    } else {
+      eprintln!("Error: Failed to get current directory");
+    }
+
+    test_mk_dir(file_path.as_str());
+    test_rm_dir(file_path.as_str());
+  }
+
+  #[allow(dead_code)]
+  fn test_mk_dir(file_path: &str) {
+    mk_dir(file_path.to_string());
+    assert!(Path::new(file_path).exists());
+  }
+
+  #[allow(dead_code)]
+  fn test_rm_dir(file_path: &str) {
     rm_dir(file_path.to_string());
     assert!(!Path::new(file_path).exists());
   }
