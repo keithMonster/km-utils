@@ -45,13 +45,11 @@ mod tests {
     test_rm_dir(file_path.as_str());
   }
 
-  #[allow(dead_code)]
   fn test_mk_dir(file_path: &str) {
     mk_dir(file_path.to_string());
     assert!(Path::new(file_path).exists());
   }
 
-  #[allow(dead_code)]
   fn test_rm_dir(file_path: &str) {
     rm_dir(file_path.to_string());
     assert!(!Path::new(file_path).exists());
