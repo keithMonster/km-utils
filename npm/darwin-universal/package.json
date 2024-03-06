@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/keithMonster/km-cli"
+    "url": "https://github.com/keithMonster/km-utils"
   },
   "license": "MIT",
   "engines": {
