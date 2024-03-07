@@ -2,6 +2,9 @@ utils for Node.js
 
 
 ### rmDir
+```ts
+export function rmDir(path: string): boolean | null
+```
 ```rust
 /// Removes a directory at the specified path.
 ///
@@ -17,6 +20,9 @@ utils for Node.js
 ```
 
 ### mkDir
+```ts
+export function mkDir(path: string): boolean | null
+```
 ```rust
 /// Creates a directory at the specified path.
 ///
