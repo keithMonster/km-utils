@@ -26,6 +26,23 @@ pub fn mk_dir(path: String) -> Option<bool> {
   }
 }
 
+#[napi]
+pub fn readdir(path: String) -> Vec<String> {
+  match fs::read_dir(path) {
+    Ok(entries) => {
+      let mut result = Vec::new();
+      for entry in entries {
+        if let Ok(entry) = entry {
+          let file_name = entry.file_name().to_str().unwrap().to_string();
+          result.push(file_name);
+        }
+      }
+      result
+    }
+    Err(_) => Vec::new(),
+  }
+}
+
 #[cfg(test)]
 mod tests {
   use super::*;
@@ -34,8 +51,10 @@ mod tests {
   #[test]
   fn test_dir() {
     let mut file_path = String::new();
+    let mut src_path = String::new();
 
     if let Ok(current_dir) = env::current_dir() {
+      src_path = format!("{}/src", current_dir.display().to_string());
       file_path = format!("{}/src/test", current_dir.display().to_string());
     } else {
       eprintln!("Error: Failed to get current directory");
@@ -43,6 +62,7 @@ mod tests {
 
     test_mk_dir(file_path.as_str());
     test_rm_dir(file_path.as_str());
+    test_readdir(src_path.as_str());
   }
 
   fn test_mk_dir(file_path: &str) {
@@ -53,5 +73,10 @@ mod tests {
   fn test_rm_dir(file_path: &str) {
     rm_dir(file_path.to_string());
     assert!(!Path::new(file_path).exists());
+  }
+
+  fn test_readdir(path: &str) {
+    let entries = readdir(path.to_string());
+    assert!(!entries.is_empty());
   }
 }
