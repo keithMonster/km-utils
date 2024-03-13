@@ -8,4 +8,6 @@ export function mkDir(path: string): boolean | null
 export function isDir(path: string): boolean | null
 export function isFile(path: string): boolean | null
 export function readdir(path: string): Array<string>
+export function extname(path: string): string | null
+export function basename(path: string, ext: string): string
 export function replaceText(original: string, pattern: string, replacement: string): string
