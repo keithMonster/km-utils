@@ -1,18 +1,9 @@
 #![deny(clippy::all)]
 use std::fs;
-use std::path::Path;
-
-fn rm_dir_rs(path: &str) -> Result<(), std::io::Error> {
-  let dir_path = Path::new(path);
-  if dir_path.is_dir() {
-    fs::remove_dir_all(dir_path)?;
-  }
-  Ok(())
-}
 
 #[napi]
 pub fn rm_dir(path: String) -> Option<bool> {
-  match rm_dir_rs(path.as_str()) {
+  match fs::remove_dir_all(path) {
     Ok(_) => Some(true),
     Err(_) => None,
   }
@@ -22,6 +13,22 @@ pub fn rm_dir(path: String) -> Option<bool> {
 pub fn mk_dir(path: String) -> Option<bool> {
   match fs::create_dir(path) {
     Ok(_) => Some(true),
+    Err(_) => None,
+  }
+}
+
+#[napi]
+pub fn is_dir(path: String) -> Option<bool> {
+  match fs::metadata(path) {
+    Ok(metadata) => Some(metadata.is_dir()),
+    Err(_) => None,
+  }
+}
+
+#[napi]
+pub fn is_file(path: String) -> Option<bool> {
+  match fs::metadata(path) {
+    Ok(metadata) => Some(metadata.is_file()),
     Err(_) => None,
   }
 }
@@ -47,6 +54,7 @@ pub fn readdir(path: String) -> Vec<String> {
 mod tests {
   use super::*;
   use std::env;
+  use std::path::Path;
 
   #[test]
   fn test_dir() {
@@ -62,7 +70,9 @@ mod tests {
 
     test_mk_dir(file_path.as_str());
     test_rm_dir(file_path.as_str());
-    test_readdir(src_path.as_str());
+    test_readdir(&src_path);
+    test_is_dir(&src_path);
+    test_is_file(&src_path);
   }
 
   fn test_mk_dir(file_path: &str) {
@@ -78,5 +88,15 @@ mod tests {
   fn test_readdir(path: &str) {
     let entries = readdir(path.to_string());
     assert!(!entries.is_empty());
+  }
+
+  fn test_is_dir(path: &str) {
+    let is_dir = is_dir(path.to_string());
+    assert!(is_dir.unwrap());
+  }
+
+  fn test_is_file(path: &str) {
+    let is_file = is_file(path.to_string());
+    assert!(!is_file.unwrap());
   }
 }

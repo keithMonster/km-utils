@@ -17,3 +17,13 @@ export function mkDir(path: string): boolean | null
 ```ts
 export function readdir(path: string): Array<string>
 ```
+
+### isDir
+```ts
+export function isDir(path: string): boolean | null
+```
+
+### isFile
+```ts
+export function isFile(path: string): boolean | null
+```

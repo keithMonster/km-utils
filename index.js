@@ -281,9 +281,11 @@ if (!nativeBinding) {
   throw new Error(`Failed to load native binding`)
 }
 
-const { rmDir, mkDir, readdir, replaceText } = nativeBinding
+const { rmDir, mkDir, isDir, isFile, readdir, replaceText } = nativeBinding
 
 module.exports.rmDir = rmDir
 module.exports.mkDir = mkDir
+module.exports.isDir = isDir
+module.exports.isFile = isFile
 module.exports.readdir = readdir
 module.exports.replaceText = replaceText

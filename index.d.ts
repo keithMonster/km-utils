@@ -5,5 +5,7 @@
 
 export function rmDir(path: string): boolean | null
 export function mkDir(path: string): boolean | null
+export function isDir(path: string): boolean | null
+export function isFile(path: string): boolean | null
 export function readdir(path: string): Array<string>
 export function replaceText(original: string, pattern: string, replacement: string): string
