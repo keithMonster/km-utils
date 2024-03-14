@@ -31,8 +31,8 @@ pub fn basename_rs(path: &str, ext: Option<&str>) -> String {
 }
 
 #[napi]
-pub fn basename(path: String, ext: String) -> String {
-  basename_rs(path.as_str(), Some(ext.as_str())).to_string()
+pub fn basename(path: String, ext: Option<String>) -> String {
+  basename_rs(path.as_str(), ext.as_deref())
 }
 
 #[cfg(test)]
@@ -62,9 +62,9 @@ mod tests {
   }
 
   fn text_basename() {
-    let file_path = "src/path_utils.rs";
-    let ext = ".rs";
-    let base = basename(file_path.to_string(), ext.to_string());
+    let file_path = "src/cc/path_utils.rs";
+    let ext = ".rs".to_string();
+    let base = basename(file_path.to_string(), Some(ext));
     assert!(base == "path_utils");
   }
 }
