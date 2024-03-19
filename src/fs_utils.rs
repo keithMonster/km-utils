@@ -2,51 +2,57 @@
 use std::fs;
 
 #[napi]
-pub fn rmdir(path: String) -> Option<bool> {
-  match fs::remove_dir_all(path) {
-    Ok(_) => Some(true),
-    Err(_) => None,
-  }
-}
+pub struct FsUtils {}
 
 #[napi]
-pub fn mkdir(path: String) -> Option<bool> {
-  match fs::create_dir(path) {
-    Ok(_) => Some(true),
-    Err(_) => None,
-  }
-}
-
-#[napi]
-pub fn is_dir(path: String) -> Option<bool> {
-  match fs::metadata(path) {
-    Ok(metadata) => Some(metadata.is_dir()),
-    Err(_) => None,
-  }
-}
-
-#[napi]
-pub fn is_file(path: String) -> Option<bool> {
-  match fs::metadata(path) {
-    Ok(metadata) => Some(metadata.is_file()),
-    Err(_) => None,
-  }
-}
-
-#[napi]
-pub fn readdir(path: String) -> Vec<String> {
-  match fs::read_dir(path) {
-    Ok(entries) => {
-      let mut result = Vec::new();
-      for entry in entries {
-        if let Ok(entry) = entry {
-          let file_name = entry.file_name().to_str().unwrap().to_string();
-          result.push(file_name);
-        }
-      }
-      result
+impl FsUtils {
+  #[napi]
+  pub fn rmdir(path: String) -> Option<bool> {
+    match fs::remove_dir_all(path) {
+      Ok(_) => Some(true),
+      Err(_) => None,
     }
-    Err(_) => Vec::new(),
+  }
+
+  #[napi]
+  pub fn mkdir(path: String) -> Option<bool> {
+    match fs::create_dir(path) {
+      Ok(_) => Some(true),
+      Err(_) => None,
+    }
+  }
+
+  #[napi]
+  pub fn readdir(path: String) -> Vec<String> {
+    match fs::read_dir(path) {
+      Ok(entries) => {
+        let mut result = Vec::new();
+        for entry in entries {
+          if let Ok(entry) = entry {
+            let file_name = entry.file_name().to_str().unwrap().to_string();
+            result.push(file_name);
+          }
+        }
+        result
+      }
+      Err(_) => Vec::new(),
+    }
+  }
+
+  #[napi]
+  pub fn is_dir(path: String) -> Option<bool> {
+    match fs::metadata(path) {
+      Ok(metadata) => Some(metadata.is_dir()),
+      Err(_) => None,
+    }
+  }
+
+  #[napi]
+  pub fn is_file(path: String) -> Option<bool> {
+    match fs::metadata(path) {
+      Ok(metadata) => Some(metadata.is_file()),
+      Err(_) => None,
+    }
   }
 }
 
@@ -76,27 +82,27 @@ mod tests {
   }
 
   fn test_mk_dir(file_path: &str) {
-    mkdir(file_path.to_string());
+    FsUtils::mkdir(file_path.to_string());
     assert!(Path::new(file_path).exists());
   }
 
   fn test_rm_dir(file_path: &str) {
-    rmdir(file_path.to_string());
+    FsUtils::rmdir(file_path.to_string());
     assert!(!Path::new(file_path).exists());
   }
 
   fn test_readdir(path: &str) {
-    let entries = readdir(path.to_string());
+    let entries = FsUtils::readdir(path.to_string());
     assert!(!entries.is_empty());
   }
 
   fn test_is_dir(path: &str) {
-    let is_dir = is_dir(path.to_string());
+    let is_dir = FsUtils::is_dir(path.to_string());
     assert!(is_dir.unwrap());
   }
 
   fn test_is_file(path: &str) {
-    let is_file = is_file(path.to_string());
+    let is_file = FsUtils::is_file(path.to_string());
     assert!(!is_file.unwrap());
   }
 }

@@ -281,12 +281,8 @@ if (!nativeBinding) {
   throw new Error(`Failed to load native binding`)
 }
 
-const { rmdir, mkdir, isDir, isFile, readdir, PathUtils, replaceText } = nativeBinding
+const { FsUtils, PathUtils, replaceText } = nativeBinding
 
-module.exports.rmdir = rmdir
-module.exports.mkdir = mkdir
-module.exports.isDir = isDir
-module.exports.isFile = isFile
-module.exports.readdir = readdir
+module.exports.FsUtils = FsUtils
 module.exports.PathUtils = PathUtils
 module.exports.replaceText = replaceText

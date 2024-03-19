@@ -3,29 +3,15 @@
 utils for Node.js
 
 
-### rmDir
+### FsUtils
 ```ts
-export function rmDir(path: string): boolean | null
-```
-
-### mkDir
-```ts
-export function mkDir(path: string): boolean | null
-```
-
-### readdir
-```ts
-export function readdir(path: string): Array<string>
-```
-
-### isDir
-```ts
-export function isDir(path: string): boolean | null
-```
-
-### isFile
-```ts
-export function isFile(path: string): boolean | null
+export class FsUtils {
+  static rmdir(path: string): boolean | null
+  static mkdir(path: string): boolean | null
+  static readdir(path: string): Array<string>
+  static isDir(path: string): boolean | null
+  static isFile(path: string): boolean | null
+}
 ```
 
 ### PathUtils
