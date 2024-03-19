@@ -2,7 +2,7 @@
 use std::fs;
 
 #[napi]
-pub fn rm_dir(path: String) -> Option<bool> {
+pub fn rmdir(path: String) -> Option<bool> {
   match fs::remove_dir_all(path) {
     Ok(_) => Some(true),
     Err(_) => None,
@@ -10,7 +10,7 @@ pub fn rm_dir(path: String) -> Option<bool> {
 }
 
 #[napi]
-pub fn mk_dir(path: String) -> Option<bool> {
+pub fn mkdir(path: String) -> Option<bool> {
   match fs::create_dir(path) {
     Ok(_) => Some(true),
     Err(_) => None,
@@ -76,12 +76,12 @@ mod tests {
   }
 
   fn test_mk_dir(file_path: &str) {
-    mk_dir(file_path.to_string());
+    mkdir(file_path.to_string());
     assert!(Path::new(file_path).exists());
   }
 
   fn test_rm_dir(file_path: &str) {
-    rm_dir(file_path.to_string());
+    rmdir(file_path.to_string());
     assert!(!Path::new(file_path).exists());
   }
 

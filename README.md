@@ -27,3 +27,11 @@ export function isDir(path: string): boolean | null
 ```ts
 export function isFile(path: string): boolean | null
 ```
+
+### PathUtils
+```ts
+export class PathUtils {
+  static basename(path: string, ext?: string | undefined | null): string
+  static extname(path: string): string | null
+}
+```

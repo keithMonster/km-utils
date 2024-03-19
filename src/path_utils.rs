@@ -5,15 +5,7 @@ fn extname_rs(path: &str) -> Option<&str> {
   Path::new(path).extension().and_then(|ext| ext.to_str())
 }
 
-#[napi]
-pub fn extname(path: String) -> Option<String> {
-  match extname_rs(path.as_str()) {
-    Some(ext) => Some(ext.to_string()),
-    None => None,
-  }
-}
-
-pub fn basename_rs(path: &str, ext: Option<&str>) -> String {
+fn basename_rs(path: &str, ext: Option<&str>) -> String {
   let mut base = Path::new(path)
     .file_name()
     .unwrap()
@@ -31,8 +23,22 @@ pub fn basename_rs(path: &str, ext: Option<&str>) -> String {
 }
 
 #[napi]
-pub fn basename(path: String, ext: Option<String>) -> String {
-  basename_rs(path.as_str(), ext.as_deref())
+pub struct PathUtils {}
+
+#[napi]
+impl PathUtils {
+  #[napi]
+  pub fn basename(path: String, ext: Option<String>) -> String {
+    basename_rs(path.as_str(), ext.as_deref())
+  }
+
+  #[napi]
+  pub fn extname(path: String) -> Option<String> {
+    match extname_rs(path.as_str()) {
+      Some(ext) => Some(ext.to_string()),
+      None => None,
+    }
+  }
 }
 
 #[cfg(test)]
@@ -57,14 +63,14 @@ mod tests {
   }
 
   fn test_extname(file_path: &str) {
-    let ext = extname(file_path.to_string());
+    let ext = PathUtils::extname(file_path.to_string());
     assert!(ext.unwrap() == "rs");
   }
 
   fn text_basename() {
     let file_path = "src/cc/path_utils.rs";
     let ext = ".rs".to_string();
-    let base = basename(file_path.to_string(), Some(ext));
+    let base = PathUtils::basename(file_path.to_string(), Some(ext));
     assert!(base == "path_utils");
   }
 }
