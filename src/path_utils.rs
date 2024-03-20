@@ -1,4 +1,3 @@
-#![deny(clippy::all)]
 use std::path::Path;
 
 fn extname_rs(path: &str) -> Option<&str> {

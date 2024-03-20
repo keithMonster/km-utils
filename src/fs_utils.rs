@@ -1,4 +1,3 @@
-#![deny(clippy::all)]
 use std::fs;
 
 #[napi]
@@ -36,6 +35,22 @@ impl FsUtils {
         result
       }
       Err(_) => Vec::new(),
+    }
+  }
+
+  #[napi]
+  pub fn write(path: String, contents: String) -> bool {
+    match fs::write(path, contents) {
+      Ok(_) => true,
+      Err(_) => false,
+    }
+  }
+
+  #[napi]
+  pub fn read(path: String) -> String {
+    match fs::read_to_string(path) {
+      Ok(contents) => contents,
+      Err(_) => "".to_string(),
     }
   }
 

@@ -1,5 +1,3 @@
-#![deny(clippy::all)]
-
 use regex::Regex;
 
 fn replace_text_rs(original: &str, pattern: &str, replacement: &str) -> String {

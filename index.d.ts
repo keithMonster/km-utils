@@ -8,6 +8,8 @@ export class FsUtils {
   static rmdir(path: string): boolean | null
   static mkdir(path: string): boolean | null
   static readdir(path: string): Array<string>
+  static write(path: string, contents: string): boolean
+  static read(path: string): string
   static isDir(path: string): boolean | null
   static isFile(path: string): boolean | null
 }
