@@ -281,8 +281,9 @@ if (!nativeBinding) {
   throw new Error(`Failed to load native binding`)
 }
 
-const { FsUtils, PathUtils, replaceText } = nativeBinding
+const { CliUtils, FsUtils, PathUtils, replaceText } = nativeBinding
 
+module.exports.CliUtils = CliUtils
 module.exports.FsUtils = FsUtils
 module.exports.PathUtils = PathUtils
 module.exports.replaceText = replaceText
