@@ -11,4 +11,11 @@ impl CliUtils {
       Err(e) => panic!("{}", e),
     }
   }
+  #[napi]
+  pub fn build() -> () {
+    match cfx_cli::build::run() {
+      Ok(_) => (),
+      Err(e) => panic!("{}", e),
+    }
+  }
 }

@@ -6,6 +6,7 @@
 export function replaceText(original: string, pattern: string, replacement: string): string
 export class CliUtils {
   static clear(): void
+  static build(): void
 }
 export class FsUtils {
   static rmdir(path: string): boolean | null

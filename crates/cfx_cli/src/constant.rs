@@ -1,3 +1,4 @@
+pub const SRC_DIR: &str = "src";
 pub const ES_DIR: &str = "es";
 pub const LIB_DIR: &str = "lib";
 pub const DIST_DIR: &str = "dist";
