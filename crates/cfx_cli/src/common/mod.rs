@@ -6,11 +6,11 @@ use crate::options;
 
 const EXCLUDES: [&str; 1] = [".DS_Store"];
 
-pub fn get_components_names(user_config: options::UserConfig) -> Vec<String> {
-  println!("user_config.build.ignore,{:?}", user_config.build.ignore);
+pub fn get_components_names(user_config: &options::UserConfig) -> Vec<String> {
+  // println!("user_config.build.ignore,{:?}", user_config.build.ignore);
   if let Ok(current_dir) = env::current_dir() {
     let dirs = current_dir.join(constant::SRC_DIR);
-    // 先读取src下所有文件，过滤一次默认的，再过滤一次自定义的，然后判断下下面的index.ts 有 export default
+    // 先读取src下所有文件，过滤一次默认的，再过滤一次自定义的ignore，然后判断下下面的index.ts 有 export default 的
     fs::read_dir(dirs)
       .unwrap()
       .map(|file| file.unwrap().file_name().into_string().unwrap())

@@ -31,15 +31,33 @@ fn copy_source_code() -> Result<(), std::io::Error> {
   Ok(())
 }
 
-fn build_package_script_entry(user_config: options::UserConfig) {
-  compiler::gen_package_entry::run(user_config, "ess");
+fn build_package_script_entry(user_config: &options::UserConfig) -> Result<(), std::io::Error> {
+  let current_dir = env::current_dir()?;
+  let output_path = current_dir.join(constant::ES_DIR).join("index.js");
+  compiler::gen_package_entry::run(user_config, output_path.to_str().unwrap());
+  fs::copy(
+    current_dir.join(constant::ES_DIR).join("index.js"),
+    current_dir.join(constant::LIB_DIR).join("index.js"),
+  )?;
+  Ok(())
+}
+
+fn build_component_style_entry(user_config: &options::UserConfig) -> Result<(), std::io::Error> {
+  // let current_dir = env::current_dir()?;
+  compiler::gen_component_style_entry::run(user_config);
+  Ok(())
 }
 
 pub fn run(user_config: options::UserConfig) -> Result<(), std::io::Error> {
+  // 先把源代码复制到目标文件
   println!("Copy Source Code.");
   copy_source_code()?;
+  // 然后构建js桶文件，导出所有组件
   println!("Build Package Script Entry.");
-  build_package_script_entry(user_config);
+  build_package_script_entry(&user_config)?;
+  // 接着构建每一个组件的样式文件入口
+  println!("Build Component Style Entry.");
+  build_component_style_entry(&user_config)?;
   Ok(())
 }
 
