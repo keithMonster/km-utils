@@ -44,6 +44,7 @@ fn build_package_script_entry(user_config: &options::UserConfig) -> Result<(), s
 
 fn build_component_style_entry(user_config: &options::UserConfig) -> Result<(), std::io::Error> {
   // let current_dir = env::current_dir()?;
+  compiler::gen_style_deps_map::run(user_config);
   compiler::gen_component_style_entry::run(user_config);
   Ok(())
 }
