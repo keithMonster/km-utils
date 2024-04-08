@@ -42,12 +42,12 @@ fn build_package_script_entry(user_config: &options::UserConfig) -> Result<(), s
   Ok(())
 }
 
-fn build_component_style_entry(user_config: &options::UserConfig) -> Result<(), std::io::Error> {
-  // let current_dir = env::current_dir()?;
-  compiler::gen_style_deps_map::run(user_config);
-  compiler::gen_component_style_entry::run(user_config);
-  Ok(())
-}
+// fn build_component_style_entry(user_config: &options::UserConfig) -> Result<(), std::io::Error> {
+//   // let current_dir = env::current_dir()?;
+//   compiler::gen_style_deps_map::run(user_config);
+//   compiler::gen_component_style_entry::run(user_config);
+//   Ok(())
+// }
 
 pub fn run(user_config: options::UserConfig) -> Result<(), std::io::Error> {
   // 先把源代码复制到目标文件
@@ -56,9 +56,10 @@ pub fn run(user_config: options::UserConfig) -> Result<(), std::io::Error> {
   // 然后构建js桶文件，导出所有组件
   println!("Build Package Script Entry.");
   build_package_script_entry(&user_config)?;
-  // 接着构建每一个组件的样式文件入口
-  println!("Build Component Style Entry.");
-  build_component_style_entry(&user_config)?;
+  // // 接着构建每一个组件的样式文件入口---不需要了
+  // println!("Build Component Style Entry.");
+  // build_component_style_entry(&user_config)?;
+
   Ok(())
 }
 

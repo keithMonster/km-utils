@@ -28,13 +28,14 @@ pub fn run(user_config: &options::UserConfig, output_path: &str) {
   //   .into_iter()
   //   .map(|name| convert_to_component_name(&name))
   //   .collect();
+  // 根据全部组件名称，构建桶文件
   let exports_str = names
     .iter()
     .map(|name| format!("export * from './{}';\n", name))
     .collect::<Vec<_>>()
     .join("");
 
-  println!("{:?}", output_path);
+  // println!("{:?}", output_path);
   match fs::write(output_path, exports_str) {
     Ok(_) => (),
     Err(_) => (),
