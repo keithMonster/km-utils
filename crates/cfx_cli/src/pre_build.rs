@@ -113,7 +113,7 @@ pub fn run(user_config: options::UserConfig) -> Result<(), std::io::Error> {
   // 然后本来是构建整个包的统一入口的样式文件的，也不需要了
 
   // 接着删除被过滤的文件
-  println!("Remove ignor Source Code");
+  println!("Remove ignore Source Code");
   remove_ignore_source_code(&user_config)?;
 
   // 然后删除Demo 和 Test 文件
