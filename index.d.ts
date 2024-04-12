@@ -13,7 +13,8 @@ export interface UserConfig {
 export function replaceText(original: string, pattern: string, replacement: string): string
 export class CliUtils {
   static clear(): void
-  static build(userConfig: UserConfig): void
+  static preBuild(userConfig: UserConfig): void
+  static compileScript(path: string, compileType: string): void
 }
 export class FsUtils {
   static rmdir(path: string): boolean | null

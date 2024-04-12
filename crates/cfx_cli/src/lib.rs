@@ -4,3 +4,4 @@ pub mod common;
 pub mod compiler;
 pub mod constant;
 pub mod options;
+pub mod pre_build;
