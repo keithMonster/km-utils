@@ -23,11 +23,3 @@ export class PathUtils {
   static extname(path: string): string | null
 }
 ```
-### CliUtils
-```ts
-export class CliUtils {
-  static clear(): void
-  static preBuild(userConfig: UserConfig): void
-  static compileScript(path: string, compileType: string): void
-}
-```
