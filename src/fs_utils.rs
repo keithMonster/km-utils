@@ -55,6 +55,14 @@ impl FsUtils {
   }
 
   #[napi]
+  pub fn rm(path: String) -> Option<bool> {
+    match fs::remove_file(path) {
+      Ok(_) => Some(true),
+      Err(_) => None,
+    }
+  }
+
+  #[napi]
   pub fn is_dir(path: String) -> Option<bool> {
     match fs::metadata(path) {
       Ok(metadata) => Some(metadata.is_dir()),
