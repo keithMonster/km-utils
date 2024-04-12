@@ -6,14 +6,14 @@ utils for Node.js
 ### FsUtils
 ```ts
 export class FsUtils {
-  static rmdir(path: string): boolean | null
-  static mkdir(path: string): boolean | null
+  static rmdir(path: string): boolean
+  static mkdir(path: string): boolean
   static readdir(path: string): Array<string>
   static write(path: string, contents: string): boolean
   static read(path: string): string
-  static rm(path: string): boolean | null
-  static isDir(path: string): boolean | null
-  static isFile(path: string): boolean | null
+  static rm(path: string): boolean
+  static isDir(path: string): boolean
+  static isFile(path: string): boolean
 }
 ```
 

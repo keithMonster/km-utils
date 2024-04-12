@@ -6,18 +6,18 @@ pub struct FsUtils {}
 #[napi]
 impl FsUtils {
   #[napi]
-  pub fn rmdir(path: String) -> Option<bool> {
+  pub fn rmdir(path: String) -> bool {
     match fs::remove_dir_all(path) {
-      Ok(_) => Some(true),
-      Err(_) => None,
+      Ok(_) => true,
+      Err(_) => false,
     }
   }
 
   #[napi]
-  pub fn mkdir(path: String) -> Option<bool> {
+  pub fn mkdir(path: String) -> bool {
     match fs::create_dir(path) {
-      Ok(_) => Some(true),
-      Err(_) => None,
+      Ok(_) => true,
+      Err(_) => false,
     }
   }
 
@@ -55,26 +55,26 @@ impl FsUtils {
   }
 
   #[napi]
-  pub fn rm(path: String) -> Option<bool> {
+  pub fn rm(path: String) -> bool {
     match fs::remove_file(path) {
-      Ok(_) => Some(true),
-      Err(_) => None,
+      Ok(_) => true,
+      Err(_) => false,
     }
   }
 
   #[napi]
-  pub fn is_dir(path: String) -> Option<bool> {
+  pub fn is_dir(path: String) -> bool {
     match fs::metadata(path) {
-      Ok(metadata) => Some(metadata.is_dir()),
-      Err(_) => None,
+      Ok(metadata) => metadata.is_dir(),
+      Err(_) => false,
     }
   }
 
   #[napi]
-  pub fn is_file(path: String) -> Option<bool> {
+  pub fn is_file(path: String) -> bool {
     match fs::metadata(path) {
-      Ok(metadata) => Some(metadata.is_file()),
-      Err(_) => None,
+      Ok(metadata) => metadata.is_file(),
+      Err(_) => false,
     }
   }
 }
