@@ -1,7 +1,7 @@
 {
     "rust-analyzer.linkedProjects": [
         "./crates/cfx_cli/Cargo.toml",
-        "./crates/cfx_cli/Cargo.toml"
+        "./Cargo.toml"
     ],
     "rust-analyzer.showUnlinkedFileNotification": false
 }
