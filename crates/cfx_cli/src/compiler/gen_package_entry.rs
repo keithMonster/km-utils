@@ -31,7 +31,14 @@ pub fn run(user_config: &options::UserConfig, output_path: &str) {
   // 根据全部组件名称，构建桶文件
   let exports_str = names
     .iter()
-    .map(|name| format!("export * from './{}';\n", name))
+    .map(|name| {
+      format!(
+        "export * from './{}';\nexport {{ default as {} }} from './{}';\n",
+        name,
+        convert_to_component_name(&name),
+        name
+      )
+    })
     .collect::<Vec<_>>()
     .join("");
 
