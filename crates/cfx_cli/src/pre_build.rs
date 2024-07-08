@@ -52,6 +52,9 @@ fn build_package_script_entry(user_config: &options::UserConfig) -> Result<(), s
 fn remove_ignore_source_code(user_config: &options::UserConfig) -> Result<(), std::io::Error> {
   if user_config.build.ignore.len() > 0 {
     for ignore in &user_config.build.ignore {
+      if ignore.is_empty() {
+        continue;
+      }
       let current_dir = env::current_dir()?;
       let ignore_path = current_dir.join(constant::ES_DIR).join(ignore);
       if ignore_path.exists() {
