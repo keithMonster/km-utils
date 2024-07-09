@@ -207,8 +207,7 @@ jobs:
         shell: bash
       - name: Test bindings
         run: yarn test
-
- test-linux-x64-musl-binding:
+  test-linux-x64-musl-binding:
     name: Test bindings on x86_64-unknown-linux-musl - node@${{ matrix.node }}
     needs:
       - build
