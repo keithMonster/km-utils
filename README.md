@@ -24,3 +24,4 @@ export class PathUtils {
   static extname(path: string): string | null
 }
 ```
+
